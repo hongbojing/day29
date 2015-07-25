@@ -3,11 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <title>day #</title>
+<!--
   <link rel="stylesheet" href="css/myStyle.css">
   <link rel="stylesheet" href="css/anotherstyle.css">
+-->
+  <link rel="stylesheet" href="css/Dropdown.css">
+  <style>
+    /* set the background colour */
+    .dropdown,
+    .dropdown ul{
+      background : rgb(128,192,64);
+    }
+
+    /* pad items, set their text colour, and fade their background colour */
+    .dropdown a,
+    .dropdown span{
+      padding    : 0.25em 0.5em;
+      color      : white;
+      transition : background 0.2s;
+    }
+
+    /* set the background colour of active items */
+    .dropdown li:hover > a,
+    .dropdown li:hover > span,
+    .dropdown li.dropdownOpen > a,
+    .dropdown li.dropdownOpen > span{
+      background : rgb(160,208,112);
+    }
+    /* centre the menu */
+    .dropdown{
+      text-align : center;
+    }
+
+    /* align the menu content */
+    .dropdown > li{
+      text-align : left;
+    }
+    [dir=rtl] .dropdown > li{
+      text-align : right;
+    }
+
+/*add the slant attributes*/
+    .teeth-bot{
+      width: 100px;
+      height: 80px;
+      display: inline-block;
+      float: left;
+      -webkit-shape-outside: polygon(0 0,0 100%,100% 80%, 100% 0);
+      shape-outside: polygon(0 0,0 100%,100% 80%, 100% 0);
+      -webkit-clip-path: polygon(0 0,0 100%,100% 80%, 100% 0);
+      -webkit-shape-margin: 20px;
+      -webkit-border-radius: 0;
+      border-radius: 0;
+    }
+  </style>
 </head>
 <body>
+  <ul class="dropdown">
+    <li>
+      <a href="…">Page 1</a>
+      <ul class="teeth-bot">
+        <li>
+          <a href="…">Sub-page 1.1</a>
+        </li>
+        <li>
+          <a href="…">Sub-page 1.2</a>
+        </li>
+      </ul>
+    </li><li>
+    <a href="…">Page 2</a>
+    <ul>
+      <li>
+        <a href="…">Sub-page 2.1</a>
+      </li>
+      <li>
+        <a href="…">Sub-page 2.2</a>
+      </li>
+    </ul>
+    </li>
+  </ul>
 
 
+<script src="js/lib/Dropdown.src.js"></script>
+<script>
+  // initialise the drop-down menus
+  runOnLoad(Dropdown.initialise);
+  // apply the JavaScript to a menu by passing an ID
+  Dropdown.applyTo('menu1');
+
+  // apply the JavaScript to a menu by passing a DOM node
+  Dropdown.applyTo(document.getElementById('menu2'));
+
+</script>
 </body>
 </html>
